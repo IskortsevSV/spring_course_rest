@@ -4,6 +4,7 @@ import com.zaurtregulov.spring.rest.entity.Employee;
 import com.zaurtregulov.spring.rest.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,5 +24,12 @@ public class MyRESTController {
     @GetMapping("/employees") // указываем в множественном числе
     public List<Employee> showAllEmployees() {
         return employeeService.getAllEmployees();
+    }
+
+    @GetMapping("/employees/{id}") // path variable - читает переменную из URL
+    public Employee getEmployee(@PathVariable int id) {
+
+     return  employeeService.getEmployee(id);
+
     }
 }
