@@ -15,7 +15,7 @@ public class Employee {
     private String name;
 
     @Column(name = "surname")
-    private String surName;
+    private String surname;
 
     @Column(name = "department")
     private String department;
@@ -28,7 +28,7 @@ public class Employee {
 
     public Employee(String name, String surName, String department, int salary) {
         this.name = name;
-        this.surName = surName;
+        this.surname = surName;
         this.department = department;
         this.salary = salary;
     }
@@ -49,12 +49,12 @@ public class Employee {
         this.name = name;
     }
 
-    public String getSurName() {
-        return surName;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setSurName(String surName) {
-        this.surName = surName;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getDepartment() {
