@@ -1,4 +1,4 @@
-package com.zaurtregulov.spring.exception_handling;
+package com.zaurtregulov.spring.rest.exception_handling;
 
 public class EmployeeIncorrectData {
     private String info;
