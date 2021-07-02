@@ -19,12 +19,12 @@ public class MyRESTController {
     // spring с помощью функционала проекта Jackson
     // конвектирует список работников в JSON формат
     // в теле HTTP response содержится JSON который оторбразится в браузере
-    @GetMapping("/employees") // указываем в множественном числе
+    @GetMapping("/employees") // указываем в множественном числе //GET ALL
     public List<Employee> showAllEmployees() {
         return employeeService.getAllEmployees();
     }
 
-    @GetMapping("/employees/{id}") // path variable - читает переменную из URL
+    @GetMapping("/employees/{id}") // path variable - читает переменную из URL // GET ID
     public Employee getEmployee(@PathVariable int id) {
 
         Employee employee = employeeService.getEmployee(id);
@@ -36,13 +36,22 @@ public class MyRESTController {
      return employee ;
     }
 
-    @PostMapping("/employees")
+    @PostMapping("/employees") // ADD
     //Аннотация PostMapping связывает HTTP запрос, использующий HTTP метод POST с методом Controller
     //Аннотация RequestBody связывает body HTTP метода, с параметром метода Controller
     public Employee addNewEmployee(@RequestBody Employee employee) {
 
         employeeService.saveEmployee(employee);
         return employee;
+    }
+
+    @PutMapping("/employees") // UPDATE
+    public Employee updateEmployee(@RequestBody Employee employee) {
+
+        employeeService.saveEmployee(employee);
+
+        return employee;
+
     }
 
 
