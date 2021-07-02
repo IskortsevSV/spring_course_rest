@@ -50,4 +50,16 @@ public class MyRESTController {
         return new ResponseEntity<>(data, HttpStatus.NOT_FOUND);
 
     }
+
+    @ExceptionHandler // отмечается метод ответсвенный за обработку исключений
+    //ResponseEntity - это обертка HTTP response
+    public ResponseEntity<EmployeeIncorrectData> handleException(Exception exception) {
+
+        EmployeeIncorrectData data = new EmployeeIncorrectData();
+
+        data.setInfo(exception.getMessage());
+
+        return new ResponseEntity<>(data, HttpStatus.BAD_REQUEST);
+
+    }
 }
